@@ -1,0 +1,18 @@
+substitutions:
+    name: esp32-bt-proxy
+    long_name: Bluetooth Proxy
+
+packages:
+    esphome_common: !include esphome-common.yaml
+    esp32_s3_eth: !include esp32-s3-eth.yaml
+
+
+# This is disabled by default here, as the board has ethernet
+# Ideally it would try to connect only if eth fails (see https://github.com/esphome/feature-requests/issues/1357)
+#wifi:
+#    ssid: !secret wifi_ssid
+#    password: !secret wifi_pass
+
+esp32_ble_tracker: # bluetooth_proxy depends on esp32_ble_tracker
+bluetooth_proxy:
+    active: true
